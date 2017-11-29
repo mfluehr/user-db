@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <%- include("partials/head", { title: "Profile" }) %>
+
+  <body>
+    <%- include("partials/header") %>
+
+    <main>
+      <h1>Profile Page</h1>
+      <p>This is the profile page for <%= user.email %>.</p>
+
+      <form method="post" action="/profile">
+        <label>Name
+          <input name="name" type="text" value="<%= user.name %>" /></label>
+        <label>Email
+          <input type="email" name="email" value="<%= user.email %>" /></label>
+        <label>Location
+          <input type="text" name="location" value="<%= user.location %>" /></label>
+        <label>Age
+          <input type="number" name="age" value="<%= user.age %>" /></label>
+        <button type="submit">Save</button>
+      </form>
+    </main>
+  </body>
+</html>
