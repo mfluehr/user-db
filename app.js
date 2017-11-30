@@ -2,10 +2,10 @@
 
 require("dotenv").config();
 
-const express = require("express");
-const mongoose = require("mongoose");
-const session = require("express-session");
 const bodyParser = require("body-parser");
+const express = require("express");
+const session = require("express-session");
+const mongoose = require("mongoose");
 
 // Init application
 const app = express();
@@ -23,7 +23,7 @@ db.on("error", console.error.bind(console, "connection error:"));
 const MongoStore = require("connect-mongo")(session);
 
 app.use(session({
-  secret: "wp2ixh35ih8jp9p254yds",
+  secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
@@ -36,14 +36,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// Templating language
+// View templating
 app.set("view engine", "ejs");
 app.set("views", `${__dirname}/views`);
 
 // Static file directory
 app.use(express.static(`${__dirname}/public`));
-
-console.log(__dirname);
 
 // Request parser
 const jsonParser = bodyParser.json();
