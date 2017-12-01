@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <%- include("partials/head", { title: "Verify Your Account" }) %>
+
+  <body>
+    <%- include("partials/header") %>
+
+    <main>
+      <h1>Verify Your Account</h1>
+
+      <% if (locals.error) { %>
+        <p><%= locals.error %> <a href="#">Send yourself another verification email.</a></p>
+      <% } else { %>
+        <p>Thanks for completing your registration! <a href="/login">Click here to log in.</a></p>
+      <% } %>
+    </main>
+  </body>
+</html>
