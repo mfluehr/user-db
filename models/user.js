@@ -35,6 +35,9 @@ const UserSchema = new mongoose.Schema({
     minlength: [7, "Your password must be at least 7 characters."],
     maxlength: [30, "Your password can't be more than 30 characters."]
   },
+  validationDate: {
+    type: Number
+  },
   validationKey: {
     type: String
   }
@@ -51,6 +54,12 @@ UserSchema.statics.authenticate = function (email, password, callback) {
         }
         else if (!user) {
           const err = new Error("User not found.");
+          err.status = 401;
+          return callback(err);
+        }
+
+        if (user.validationDate) {
+          const err = new Error("User not verified.");
           err.status = 401;
           return callback(err);
         }

@@ -23,7 +23,7 @@ db.on("error", console.error.bind(console, "connection error:"));
 const MongoStore = require("connect-mongo")(session);
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || "kJAh9pp6Z5n07yT",
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
