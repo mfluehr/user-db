@@ -9,14 +9,14 @@
   "author": "Mark Fluehr",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
-    "body-parser": "^1.18.2",
-    "connect-mongo": "^2.0.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.3",
     "dotenv": "^4.0.0",
-    "ejs": "^2.5.7",
+    "ejs": "^2.6.1",
     "emailjs": "^1.0.12",
-    "express": "^4.16.2",
+    "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "mongoose": "^4.13.2"
+    "mongoose": "^4.13.18"
   }
 }
